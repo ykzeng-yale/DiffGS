@@ -8,6 +8,9 @@
 
   "diff_lr" : 1e-5,
 
+  "encoder_type": "ptv3",
+  "encoder_kwargs": {"out_channels": 256},
+
   "diffusion_specs" : {
     "timesteps" : 1000,
     "objective" : "pred_x0",
