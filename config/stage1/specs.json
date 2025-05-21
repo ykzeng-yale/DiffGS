@@ -15,7 +15,10 @@
     "log_freq" : 150,
     "kld_weight" : 1e-5,
     "latent_std" : 0.25,
-  
+
+    "encoder_type": "ptv3",
+    "encoder_kwargs": {"out_channels": 256},
+
     "sdf_lr" : 1e-4
 }
   
