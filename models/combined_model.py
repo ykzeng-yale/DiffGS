@@ -70,10 +70,15 @@ class CombinedModel(pl.LightningModule):
         gs = x['gaussians']
         gaussian_xyz = x['gaussian_xyz']
 
-        if self.point2gs:
-            plane_features = self.gs_model.pointnet.get_plane_features(gaussian_xyz)
-        else:
-            plane_features = self.gs_model.pointnet.get_plane_features(gs)
+        try:
+            if self.point2gs:
+                plane_features = self.gs_model.pointnet.get_plane_features(gaussian_xyz)
+            else:
+                plane_features = self.gs_model.pointnet.get_plane_features(gs)
+        except NotImplementedError as exc:
+            raise RuntimeError(
+                "The selected encoder does not provide plane features required for modulation training"
+            ) from exc
         original_features = torch.cat(plane_features, dim=1)
         out = self.vae_model(original_features)
         reconstructed_plane_feature, latent = out[0], out[-1]

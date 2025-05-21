@@ -67,6 +67,13 @@ conda activate diffgs
 ```
 **Notice**：Since the code uses the original repository of Gaussian Splatting, please follow the environment setup instructions provided in the [official repository](https://github.com/graphdeco-inria/gaussian-splatting) to install the required dependencies.
 
+If you would like to experiment with the PTv3 encoder from [Pointcept](https://github.com/Pointcept/Pointcept), install the additional dependency via
+
+```
+pip install pointcept
+```
+and set `"encoder": "ptv3"` in `GSModelSpecs` of your configuration file. Training modes that rely on plane feature extraction are not supported when using PTv3.
+
 ## Pretrained model
 We first provide the pretrained models: `Gaussian VAE` and `Gaussian LDM` of the chair unconditional model. Please download the pretrained models from [Google Drive](https://drive.google.com/drive/folders/13JyZtXV6ep26HnVIiFza0jn9F8VL5I1_?usp=sharing).
 
