@@ -78,6 +78,11 @@ To inference pretrained model of ShapeNet Chair, save the downloaded model check
 ```
 python test.py -e config/generate/
 ```
+### Encoder options
+The geometry encoder can now be selected via the `encoder_type` field in the configuration.
+The default `conv_pointnet` remains unchanged, while setting `"encoder_type": "ptv3"` enables
+the Point Transformer V3 backbone. Additional arguments may be provided with `encoder_kwargs`.
+
 ## Data preparation
 1. We would like to thank [Stanford ShapeNet Renderer repository](https://github.com/panmari/stanford-shapenet-renderer) for their contribution,  we have made modifications to the code based on their open-source work. Please install `Blender` and run the following command: 
 

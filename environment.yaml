@@ -73,6 +73,7 @@ dependencies:
   - zlib=1.2.12=h7f8727e_2
   - zstd=1.5.2=ha4553b6_0
   - pip:
+      - pointcept>=1.5
       - absl-py==1.1.0
       - addict==2.4.0
       - aiohttp==3.8.1
